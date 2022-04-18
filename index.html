@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" lazy test="IE=edge" />
+    <meta name="viewport" lazy test="width=device-width, initial-scale=1.0" />
+    <title>Loading-images-lazy test</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      #wrapper {
+        max-width: 960px;
+        margin: 0px auto;
+      }
+      ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+      }
+      ul li {
+        max-width: 300px;
+      }
+      img {
+        max-width: 100%;
+      }
+      .content {
+        /* display:none; */
+        border: 1px solid red;
+        margin: 20px;
+        padding: 10px;
+        position: relative;
+      }
+      h1 {
+        margin: 0px;
+      }
+      .lazy {
+        margin-bottom: 30px;
+        width: 320px;
+        height: 200px;
+        outline: 0;
+        position: relative;
+        animation-name: example;
+        animation-duration: 4s;
+      }
+      @keyframes example {
+        0% {
+          top: 20px;
+        }
+        25% {
+          top: 0px;
+        }
+        50% {
+          top: 10px;
+        }
+        100% {
+          top: 0px;
+        }
+      }
+      .event_content {
+        animation-name: event_content;
+        animation-duration: 4s;
+      }
+      @keyframes event_content {
+        0% {
+          top: 20px;
+        }
+        25% {
+          top: 0px;
+        }
+        50% {
+          top: 10px;
+        }
+        100% {
+          top: 0px;
+        }
+      }
+    </style>
+    <div id="wrapper">
+      <h1>Loading-images-lazy test</h1>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        10 : Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <ul>
+        <li>
+          <img data-original="images/img-pro-05.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-06.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-07.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-17.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-18.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-19.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-20.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-21.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-22.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-23.png" class="lazy test" alt="" />
+        </li>
+      </ul>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <ul>
+        <li>
+          <img data-original="images/img-pro-05.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-06.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-07.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-17.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-18.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-19.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-20.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-21.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-22.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-23.png" class="lazy test" alt="" />
+        </li>
+      </ul>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <ul>
+        <li>
+          <img data-original="images/img-pro-05.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-06.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-07.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-17.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-18.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-19.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-20.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-21.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-22.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-23.png" class="lazy test" alt="" />
+        </li>
+      </ul>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <ul>
+        <li>
+          <img data-original="images/img-pro-05.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-06.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-07.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-17.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-18.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-19.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-20.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-21.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-22.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-23.png" class="lazy test" alt="" />
+        </li>
+      </ul>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <ul>
+        <li>
+          <img src="images/img-pro-05.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-06.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-07.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-17.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-18.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-19.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-20.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-21.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-22.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-23.png" class="lazy test" alt="" />
+        </li>
+      </ul>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <ul>
+        <li>
+          <img data-original="images/img-pro-05.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-06.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-07.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-17.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-18.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-19.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-20.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-21.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-22.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-23.png" class="lazy test" alt="" />
+        </li>
+      </ul>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <ul>
+        <li>
+          <img data-original="images/img-pro-05.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-06.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-07.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-17.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-18.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-19.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-20.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-21.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-22.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-23.png" class="lazy test" alt="" />
+        </li>
+      </ul>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <div class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. In harum
+        eveniet praesentium, iste nobis voluptatibus, explicabo obcaecati iusto
+        totam tenetur, placeat numquam. Veniam reprehenderit tempore debitis,
+        quisquam autem laboriosam recusandae explicabo itaque. Ullam, eveniet
+        explicabo eius iusto officiis ipsam voluptate, corrupti molestiae magni
+        quis, aliquam facere animi! Quis, quo distinctio.
+      </div>
+      <ul>
+        <li>
+          <img data-original="images/img-pro-05.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-06.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-07.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-17.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-18.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-19.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-20.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-21.png" class="lazy" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-22.png" class="lazy test" alt="" />
+        </li>
+        <li>
+          <img data-original="images/img-pro-23.png" class="lazy test" alt="" />
+        </li>
+      </ul>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+    <script type="text/javascript">
+      $("img.lazy").lazyload({
+        effect: "fadeIn",
+      });
+      // Tao hieu ung load text
+      $(document).ready(function () {
+        var size_height = $(window).height();
+        // console.log(size_height);
+        var content = $(".content");
+        // console.log(content);
+        // // Kiem tra vi tri tương đối của content_item khi vua vao trang wed để thêm class event_content
+        content.each(function () {
+          var content_item_top = $(this).offset().top;
+          if (content_item_top <= size_height) {
+            // console.log(lazy test_item_top);
+            $(this).addClass("event_content");
+          }
+        });
+        // Khi scroll trình duyệt kiểm tra các phần tử của class content chưa có class event_content thì thêm vào
+        $(window).scroll(function () {
+          var size_height = $(window).height();
+          // console.log("Chieu cao trinh duyet khi scroll (không thay đổi): "+size_height);
+          // Lấy vị trí thanh cuộn hiện tại
+          var window_scroll_top = $(window).scrollTop();
+          // console.log(window_scroll_top);
+          var content = $(".content");
+          // * Trường hợp từng phần tử của lớp content có hiệu ứng ở đỉnh trình duyệt
+          // content.each(function () {
+          //   var content_item_top = $(this).offset().top;
+          //   var height_item_content = $(this).height();
+          //   // console.log(outer_height_item_content);
+          //   if (
+          //     window_scroll_top >= content_item_top &&
+          //     window_scroll_top <= content_item_top + height_item_content
+          //   ) {
+          //     if ($(this).hasClass("event_content") == false) {
+          //       $(this).addClass("event_content");
+          //     }
+          //   }
+          //   // Lấy vị trí phần tử content item hiện tại
+          //   // var content_item_top = $(this).offset().top;
+          //   // console.log("Vi tri hien tai : "+content_item_top);
+          //   // var height =
+          //   //   window.innerHeight ||
+          //   //   document.documentElement.clientHeight ||
+          //   //   document.body.clientHeight;
+          //   //   console.log("chieu cao cua trinh duyet : "+height);
+          // });
+          content.each(function () {
+            // Vị trí tương đối của từng phần tử của lớp content so với đỉnh trình duyệt
+            var content_item_top = $(this).offset().top;
+            // Chiều cao của từng phần tử của lớp content
+            var height_item_content = $(this).height();
+            // console.log(outer_height_item_content);
+            if (content_item_top-window_scroll_top
+               <= size_height-100)
+             {
+              if ($(this).hasClass("event_content") == false) {
+                // $(this).fadeIn(1000);
+                // $(this).fadeOut(1000);
+                // $(this).fadeTo();
+                // $(this).fadeToggle(1000);
+                // $(this).slideToggle("slow");
+                // $(this).slideToggle("swing");
+                $(this).addClass("event_content");
+              }
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
